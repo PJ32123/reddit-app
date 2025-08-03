@@ -1,0 +1,71 @@
+/* Full layout container */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top bar */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+
+/* Below header: sidebar + main content */
+.app-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar (left) */
+.sidebar {
+  width: 200px;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Main content (right of sidebar) */
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* SubredditList.css */
+
+.subreddit-list {
+  display: flex;
+  flex-direction: column; /* 👈 Stack vertically */
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.subreddit-list li {
+  display: block;
+}
+
+.subreddit-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.subreddit-list a:hover {
+  background-color: #eee;
+}
+
+.subreddit-list a.active {
+  background-color: #ff4500;
+  color: white;
+  font-weight: bold;
+}
