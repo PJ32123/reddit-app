@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { subreddits } from "../../components/SubredditList";
 
 // Thunk 1: Home (front page or r/a+b+c)
 export const fetchHomePosts = createAsyncThunk(
   "posts/fetchHomePosts",
   async () => {
-    const res = await fetch("https://www.reddit.com/.json");
+    const url = `/reddit/r/${subreddits.join("+")}.json`;
+    const res = await fetch(url);
     const json = await res.json();
     return json.data.children.map((child) => child.data);
   }
@@ -14,7 +16,7 @@ export const fetchHomePosts = createAsyncThunk(
 export const fetchSubredditPosts = createAsyncThunk(
   "posts/fetchSubredditPosts",
   async (subreddit) => {
-    const res = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
+    const res = await fetch(`/reddit/r/${subreddit}.json`);
     const json = await res.json();
     return json.data.children.map((child) => child.data);
   }

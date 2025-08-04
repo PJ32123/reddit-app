@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchHomePosts } from "../features/posts/postsListSlice";
 
-const subreddits = [
+export const subreddits = [
   "wheeloftime",
   "lotr",
   "dune",
@@ -14,19 +14,15 @@ const subreddits = [
 ];
 
 const SubredditList = () => {
-  /* Grab the subreddit key from the object returned by use Params and stores its value in a new variable 
-    called selected. A fancy way of writing: 
-    const params = useParams();
-    const selected = params.subreddit; */
+  // Grab the subreddit key from the object returned by use Params and stores its value in a new variable
+  // called selected. A fancy way of writing:
+  // const params = useParams();
+  // const selected = params.subreddit;
   const { subreddit: selected } = useParams();
   return (
     <ul>
       <li className="subreddit-list">
-        <Link
-          to="/"
-          onClick={() => dispatch(fetchHomePosts())}
-          className={!selected ? "active" : ""}
-        >
+        <Link to="/" className={!selected ? "active" : ""}>
           Home
         </Link>
       </li>
