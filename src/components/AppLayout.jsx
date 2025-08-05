@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Logo from "./Logo.jsx";
 import SearchBar from "../features/search/SearchBar";
 import SubredditList from "./SubredditList";
@@ -8,11 +8,13 @@ import "./AppLayout.css";
 header with the logo and the search bar at the top and the subreddit links on the right side. 
 The main content in the center will be passed in through outlet as children. */
 function AppLayout() {
+  const { postId } = useParams();
   return (
     <div className="layout">
       <header className="app-header">
         <Logo />
-        <SearchBar />
+        {/* Shows SearchBar if not in ClickedPost where there is a postId */}
+        {!postId && <SearchBar />}
       </header>
 
       <div className="app-body">

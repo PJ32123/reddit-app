@@ -1,0 +1,46 @@
+.subreddit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.subreddit-list li {
+  display: inline;
+}
+
+.subreddit-list a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.subreddit-list a:hover {
+  background-color: #eee;
+}
+
+.subreddit-list a.active {
+  background-color: #ff4500;
+  color: white;
+  font-weight: bold;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 800px) {
+  .subreddit-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .subreddit-list li {
+    display: inline-block;
+  }
+}

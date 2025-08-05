@@ -1,14 +1,14 @@
 import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { fetchHomePosts } from "../features/posts/postsListSlice";
-
+import "./SubredditList.css";
+// Define a list of subreddits to be displayed in the sidebar
+// This is a static list, but could be fetched from an API in a real application
 export const subreddits = [
   "wheeloftime",
   "lotr",
   "dune",
   "harrypotter",
   "eragon",
-  "asoif",
+  "asoiaf",
   "mistborn",
   "fantasy",
 ];
@@ -20,14 +20,14 @@ const SubredditList = () => {
   // const selected = params.subreddit;
   const { subreddit: selected } = useParams();
   return (
-    <ul>
-      <li className="subreddit-list">
+    <ul className="subreddit-list">
+      <li>
         <Link to="/" className={!selected ? "active" : ""}>
           Home
         </Link>
       </li>
       {subreddits.map((sub) => (
-        <li className="subreddit-list" key={sub}>
+        <li key={sub}>
           <Link to={`/r/${sub}`} className={sub === selected ? "active" : ""}>
             r/{sub}
           </Link>

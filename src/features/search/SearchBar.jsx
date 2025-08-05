@@ -1,35 +1,37 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm, selectSearchTerm } from "./searchSlice";
 import "./SearchBar.css";
-
+// SearchBar component for managing the search input and dispatching actions to update the Redux state
 function SearchBar() {
   const dispatch = useDispatch();
   const searchTerm = useSelector(selectSearchTerm);
-
+  // Handles input changes and dispatches the setSearchTerm action with the new value
   const handleChange = (e) => {
     dispatch(setSearchTerm(e.target.value));
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // optional: could trigger search, filter, or navigate here
-    console.log("Submitted search:", searchTerm);
-    dispatch(setSearchTerm("")); // Clear search term after submit if desired
+  // Clears the search term by dispatching setSearchTerm with an empty string
+  const clearSearch = () => {
+    dispatch(setSearchTerm(""));
   };
-
+  // Renders the search input field and a button to clear the search term
+  // The button is disabled when the search term is empty
   return (
-    <form className="search-form" onSubmit={handleSubmit}>
+    <div className="search-bar">
       <input
-        className="search-bar"
         type="text"
-        placeholder="Search posts..."
+        placeholder="Search Reddit"
         value={searchTerm}
         onChange={handleChange}
       />
-      <button type="submit" className="search-button">
-        Search
+      <button
+        className="clear-btn"
+        onClick={clearSearch}
+        aria-label="Clear search"
+        disabled={!searchTerm}
+      >
+        ×
       </button>
-    </form>
+    </div>
   );
 }
 

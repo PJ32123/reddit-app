@@ -3,7 +3,7 @@ import searchReducer from "./features/search/searchSlice";
 import postsReducer from "./features/posts/postsListSlice";
 import clickedPostReducer from "./features/clickedPost/clickedPostSlice";
 
-// reducers will be added here as you build them
+// Creates a Redux store with the search, posts, and clickedPost slices
 export const store = configureStore({
   reducer: {
     search: searchReducer,
